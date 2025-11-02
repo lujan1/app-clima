@@ -14,20 +14,22 @@ document.getElementById('registroForm')?.addEventListener('submit', function(eve
     event.preventDefault(); // Evitar el envío por defecto
 
     // Obtener los valores del formulario
-    const nombres = document.getElementById('nombres').value;
-    const apellido1 = document.getElementById('apellido1').value;
-    const apellido2 = document.getElementById('apellido2').value;
-    const email = document.getElementById('email').value;
+    const primerNombre = document.getElementById('primerNombre').value;
+    const segundoNombre = document.getElementById('segundoNombre').value;
+    const primerApellido = document.getElementById('primerApellido').value;
+    const segundoApellido = document.getElementById('segundoApellido').value;
+    const documento = document.getElementById('documento').value;
     const telefono = document.getElementById('telefono').value;
+    const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
     // Validar que los campos no estén vacíos
-    if (nombres && apellido1 && apellido2 && email && telefono && password) {
-        // Crear un ID único (simulando documento de identidad)
-        const id = Math.floor(Math.random() * 1000000000).toString();
+    if (primerNombre && primerApellido && documento && telefono && email && password) {
+        // Usar el documento como ID
+        const id = documento;
 
         // Guardar en localStorage (simulación de base de datos)
-        const user = { id, nombres, apellido1, apellido2, email, telefono, password };
+        const user = { id, primerNombre, segundoNombre, primerApellido, segundoApellido, documento, telefono, email, password };
         localStorage.setItem('user', JSON.stringify(user));
 
         // Mostrar mensaje de éxito
@@ -56,7 +58,7 @@ document.getElementById('loginForm')?.addEventListener('submit', function(event)
         const user = JSON.parse(userData);
         if (user.id === loginId && user.password === loginPassword) {
             // Login exitoso
-            alert(`¡Bienvenido, ${user.nombres}! Redirigiendo a la app...`);
+            alert(`¡Bienvenido, ${user.primerNombre}! Redirigiendo a la app...`);
             // Redirigir a la URL de Render
             window.location.href = 'https://app-clima-5-vfd1.onrender.com';
         } else {
