@@ -1,11 +1,15 @@
-// Verificar si el usuario ya está registrado al cargar la página
-window.addEventListener('load', function() {
-    const user = localStorage.getItem('user');
-    if (user) {
-        // Mostrar mensaje y sección de login
-        document.getElementById('mensajeRegistrado').style.display = 'block';
-        document.getElementById('loginSection').style.display = 'block';
-        document.getElementById('registroForm').style.display = 'none';
+// Función para alternar entre registro y login
+document.getElementById('toggleButton').addEventListener('click', function() {
+    const registroForm = document.getElementById('registroForm');
+    const loginSection = document.getElementById('loginSection');
+    if (loginSection.style.display === 'none') {
+        loginSection.style.display = 'block';
+        registroForm.style.display = 'none';
+        this.textContent = 'Registrarse';
+    } else {
+        loginSection.style.display = 'none';
+        registroForm.style.display = 'block';
+        this.textContent = 'Ingresar';
     }
 });
 
