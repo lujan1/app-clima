@@ -1,3 +1,14 @@
+// Verificar si el usuario ya está registrado al cargar la página
+window.addEventListener('load', function() {
+    const user = localStorage.getItem('user');
+    if (user) {
+        // Mostrar mensaje y sección de login
+        document.getElementById('mensajeRegistrado').style.display = 'block';
+        document.getElementById('loginSection').style.display = 'block';
+        document.getElementById('registroForm').style.display = 'none';
+    }
+});
+
 // Función para manejar el envío del formulario de registro
 document.getElementById('registroForm')?.addEventListener('submit', function(event) {
     event.preventDefault(); // Evitar el envío por defecto
@@ -17,13 +28,15 @@ document.getElementById('registroForm')?.addEventListener('submit', function(eve
 
         // Guardar en localStorage (simulación de base de datos)
         const user = { id, nombres, apellido1, apellido2, email, telefono, password };
-        localStorage.setItem('user_' + id, JSON.stringify(user));
+        localStorage.setItem('user', JSON.stringify(user));
 
         // Mostrar mensaje de éxito
         alert(`¡Registro exitoso! Tu ID es: ${id}. Ahora inicia sesión.`);
 
-        // Redirigir a la página de login
-        window.location.href = 'login.html';
+        // Mostrar sección de login y ocultar registro
+        document.getElementById('mensajeRegistrado').style.display = 'block';
+        document.getElementById('loginSection').style.display = 'block';
+        document.getElementById('registroForm').style.display = 'none';
     } else {
         alert('Por favor, completa todos los campos.');
     }
@@ -34,23 +47,23 @@ document.getElementById('loginForm')?.addEventListener('submit', function(event)
     event.preventDefault(); // Evitar el envío por defecto
 
     // Obtener los valores del formulario
-    const id = document.getElementById('id').value;
-    const password = document.getElementById('password').value;
+    const loginId = document.getElementById('loginId').value;
+    const loginPassword = document.getElementById('loginPassword').value;
 
     // Buscar el usuario en localStorage
-    const userData = localStorage.getItem('user_' + id);
+    const userData = localStorage.getItem('user');
     if (userData) {
         const user = JSON.parse(userData);
-        if (user.password === password) {
+        if (user.id === loginId && user.password === loginPassword) {
             // Login exitoso
             alert(`¡Bienvenido, ${user.nombres}! Redirigiendo a la app...`);
             // Redirigir a la URL de Render
             window.location.href = 'https://app-clima-5-vfd1.onrender.com';
         } else {
-            document.getElementById('message').textContent = 'Contraseña incorrecta.';
+            alert('ID o contraseña incorrectos.');
         }
     } else {
-        document.getElementById('message').textContent = 'ID no encontrado. Regístrate primero.';
+        alert('Usuario no registrado. Regístrate primero.');
     }
 });
 
