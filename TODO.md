@@ -11,4 +11,4 @@
 - [x] Crear página de inicio de sesión (login.html) con ID y contraseña.
 - [x] Implementar almacenamiento local para simular registro y validación de login.
 - [x] Mostrar mensaje de registro exitoso y redirigir a login.
-- [ ] Probar el flujo completo.
+- [x] Probar el flujo completo.
