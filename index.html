@@ -10,78 +10,187 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Fondo animado futurista con partículas -->
+    <div class="animated-bg">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
     <!-- Elementos decorativos: sol y nubes animadas -->
     <div class="sun"></div>
     <div class="cloud"></div>
     <div class="cloud"></div>
 
     <div class="container">
-        <h1>Bienvenido a App Clima</h1>
-        <p>Regístrate para acceder a la aplicación del clima.</p>
+        <!-- Header elegante con título y subtítulo -->
+        <div class="header">
+            <h1>🌦️ App Clima</h1>
+            <p class="subtitle">Tu compañero meteorológico inteligente</p>
+        </div>
 
         <!-- Botón para alternar entre registro y login -->
-        <button id="toggleButton">Ingresar</button>
+        <div class="toggle-container">
+            <button id="toggleButton" class="toggle-btn">Iniciar Sesión</button>
+        </div>
 
         <!-- Formulario de registro simplificado para coincidir con el backend -->
-        <form id="registroForm">
-            <!-- Campo para el nombre completo (combinado) -->
-            <label for="nombre">Nombre Completo:</label>
-            <input type="text" id="nombre" name="nombre" required>
+        <form id="registroForm" class="form-container">
+            <div class="form-header">
+                <h2>Crear Cuenta</h2>
+                <p>Únete a la comunidad del clima</p>
+            </div>
 
-            <!-- Campo para el email -->
-            <label for="email">Correo Electrónico:</label>
-            <input type="email" id="email" name="email" required>
+            <div class="input-group">
+                <label for="nombre">Nombre Completo:</label>
+                <input type="text" id="nombre" name="nombre" required placeholder="Ingresa tu nombre completo">
+            </div>
 
-            <!-- Campo para la contraseña -->
-            <label for="password">Contraseña:</label>
-            <input type="password" id="password" name="password" required>
+            <div class="input-group">
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" required placeholder="tu@email.com">
+            </div>
 
-            <button type="submit">Registrarse</button>
+            <div class="input-group">
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required placeholder="Mínimo 6 caracteres">
+            </div>
+
+            <button type="submit" class="submit-btn">🚀 Registrarse</button>
         </form>
 
         <!-- Formulario de login (oculto inicialmente) -->
-        <div id="loginSection" style="display: none;">
-            <h3>Iniciar Sesión</h3>
+        <div id="loginSection" style="display: none;" class="form-container">
+            <div class="form-header">
+                <h2>Bienvenido de Vuelta</h2>
+                <p>Accede a tu cuenta</p>
+            </div>
+
             <form id="loginForm">
-                <!-- Login con email en lugar de documento -->
-                <label for="loginEmail">Correo Electrónico:</label>
-                <input type="email" id="loginEmail" name="loginEmail" required>
+                <div class="input-group">
+                    <label for="loginEmail">Correo Electrónico:</label>
+                    <input type="email" id="loginEmail" name="loginEmail" required placeholder="tu@email.com">
+                </div>
 
-                <label for="loginPassword">Contraseña:</label>
-                <input type="password" id="loginPassword" name="loginPassword" required>
+                <div class="input-group">
+                    <label for="loginPassword">Contraseña:</label>
+                    <input type="password" id="loginPassword" name="loginPassword" required placeholder="Tu contraseña">
+                </div>
 
-                <button type="submit">Iniciar Sesión</button>
+                <button type="submit" class="submit-btn">🔓 Iniciar Sesión</button>
             </form>
         </div>
 
         <!-- Sección PQRS (sin cambios) -->
         <div class="pqrs">
-            <h3>PQRS (Peticiones, Quejas, Reclamos, Sugerencias)</h3>
+            <h3>💬 PQRS</h3>
             <form id="pqrsForm">
-                <label for="pqrsTipo">Tipo:</label>
-                <select id="pqrsTipo" name="pqrsTipo" required>
-                    <option value="">Selecciona</option>
-                    <option value="peticion">Petición</option>
-                    <option value="queja">Queja</option>
-                    <option value="reclamo">Reclamo</option>
-                    <option value="sugerencia">Sugerencia</option>
-                </select>
+                <div class="input-group">
+                    <label for="pqrsTipo">Tipo:</label>
+                    <select id="pqrsTipo" name="pqrsTipo" required>
+                        <option value="">Selecciona</option>
+                        <option value="peticion">Petición</option>
+                        <option value="queja">Queja</option>
+                        <option value="reclamo">Reclamo</option>
+                        <option value="sugerencia">Sugerencia</option>
+                    </select>
+                </div>
 
-                <label for="pqrsMensaje">Mensaje:</label>
-                <textarea id="pqrsMensaje" name="pqrsMensaje" rows="4" required></textarea>
+                <div class="input-group">
+                    <label for="pqrsMensaje">Mensaje:</label>
+                    <textarea id="pqrsMensaje" name="pqrsMensaje" rows="3" required placeholder="Escribe tu mensaje aquí..."></textarea>
+                </div>
 
-                <button type="submit">Enviar PQRS</button>
+                <button type="submit" class="submit-btn secondary">📤 Enviar</button>
             </form>
         </div>
 
-        <!-- Botón flotante de WhatsApp -->
-        <a href="https://wa.me/573183384076" target="_blank" class="whatsapp-float">
-            <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp" />
-        </a>
+        <!-- Sección de Redes Sociales y Contacto -->
+        <div class="social-section">
+            <h3>📱 Conecta con Nosotros</h3>
+            <p>¿Necesitas ayuda? Contáctanos a través de nuestras redes sociales</p>
 
-        <!-- Derechos de autor -->
+            <div class="social-buttons">
+                <!-- WhatsApp -->
+                <a href="https://wa.me/573183384076" target="_blank" class="social-btn whatsapp" title="WhatsApp">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                    </svg>
+                    <span>WhatsApp</span>
+                </a>
+
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/appclima" target="_blank" class="social-btn facebook" title="Facebook">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                    <span>Facebook</span>
+                </a>
+
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/appclima" target="_blank" class="social-btn instagram" title="Instagram">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.017 0C8.396 0 7.996.014 6.79.067 5.584.12 4.775.302 4.082.559c-.726.275-1.34.639-1.955 1.254C1.522 2.428 1.158 3.042.883 3.768.626 4.461.444 5.27.391 6.476.338 7.682.324 8.082.324 11.703s.014 3.921.067 5.127c.053 1.206.235 2.015.492 2.708.275.726.639 1.34 1.254 1.955.615.615 1.229.979 1.955 1.254.693.267 1.502.449 2.708.502 1.206.053 1.606.067 5.227.067s3.921-.014 5.127-.067c1.206-.053 2.015-.235 2.708-.492.726-.275 1.34-.639 1.955-1.254.615-.615.979-1.229 1.254-1.955.267-.693.449-1.502.502-2.708.053-1.206.067-1.606.067-5.227s-.014-3.921-.067-5.127c-.053-1.206-.235-2.015-.492-2.708-.275-.726-.639-1.34-1.254-1.955C21.572 1.522 20.958 1.158 20.232.883 19.539.626 18.73.444 17.524.391 16.318.338 15.918.324 12.297.324S8.376.338 7.17.391C5.964.444 5.155.626 4.462.883zm.003 1.49c3.57 0 3.99.013 5.396.066 1.29.049 1.986.218 2.446.362.544.17.932.372 1.34.78.408.408.61.796.78 1.34.144.46.313 1.156.362 2.446.053 1.406.066 1.826.066 5.396s-.013 3.99-.066 5.396c-.049 1.29-.218 1.986-.362 2.446-.17.544-.372.932-.78 1.34-.408.408-.796.61-1.34.78-.46.144-1.156.313-2.446.362-1.406.053-1.826.066-5.396.066s-3.99-.013-5.396-.066c-1.29-.049-1.986-.218-2.446-.362-.544-.17-.932-.372-1.34-.78-.408-.408-.61-.796-.78-1.34-.144-.46-.313-1.156-.362-2.446-.053-1.406-.066-1.826-.066-5.396s.013-3.99.066-5.396c.049-1.29.218-1.986.362-2.446.17-.544.372-.932.78-1.34.408-.408.796-.61 1.34-.78.46-.144 1.156-.313 2.446-.362 1.406-.053 1.826-.066 5.397-.066zm0 3.88c-3.663 0-6.63 2.967-6.63 6.63s2.967 6.63 6.63 6.63 6.63-2.967 6.63-6.63-2.967-6.63-6.63-6.63zm0 10.94c-2.376 0-4.31-1.934-4.31-4.31s1.934-4.31 4.31-4.31 4.31 1.934 4.31 4.31-1.934 4.31-4.31 4.31zm8.34-11.375c0 .86-.696 1.556-1.556 1.556s-1.556-.696-1.556-1.556.696-1.556 1.556 1.556 1.556.696 1.556 1.556z"/>
+                    </svg>
+                    <span>Instagram</span>
+                </a>
+
+                <!-- Twitter/X -->
+                <a href="https://twitter.com/appclima" target="_blank" class="social-btn twitter" title="Twitter/X">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                    <span>Twitter</span>
+                </a>
+
+                <!-- Email -->
+                <a href="mailto:contacto@appclima.com" class="social-btn email" title="Email">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                    <span>Email</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Botones flotantes de redes sociales -->
+        <div class="floating-social">
+            <a href="https://wa.me/573183384076" target="_blank" class="whatsapp-float">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                </svg>
+            </a>
+
+            <a href="mailto:contacto@appclima.com" class="email-float">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+            </a>
+        </div>
+
+        <!-- Footer con información legal -->
         <div class="footer">
-            <p>&copy; 2023 App Clima. Todos los derechos reservados.</p>
+            <div class="legal-info">
+                <p>&copy; 2024 App Clima. Todos los derechos reservados.</p>
+                <div class="legal-links">
+                    <a href="#" onclick="showLegal('privacidad')">Política de Privacidad</a> |
+                    <a href="#" onclick="showLegal('terminos')">Términos de Servicio</a> |
+                    <a href="#" onclick="showLegal('cookies')">Política de Cookies</a>
+                </div>
+                <p class="disclaimer">
+                    Esta aplicación utiliza datos meteorológicos de fuentes externas. La información proporcionada es solo para fines informativos y no constituye asesoramiento profesional.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para avisos legales -->
+    <div id="legalModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div id="legalContent"></div>
         </div>
     </div>
 

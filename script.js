@@ -116,3 +116,91 @@ document.getElementById('pqrsForm').addEventListener('submit', function(event) {
         alert('Por favor, completa todos los campos del PQRS.');
     }
 });
+
+// Función para mostrar avisos legales en modal
+function showLegal(type) {
+    const modal = document.getElementById('legalModal');
+    const content = document.getElementById('legalContent');
+
+    let title = '';
+    let text = '';
+
+    switch(type) {
+        case 'privacidad':
+            title = 'Política de Privacidad';
+            text = `
+                <h2>Política de Privacidad</h2>
+                <p>En App Clima, nos comprometemos a proteger tu privacidad. Esta política explica cómo recopilamos, usamos y protegemos tu información personal.</p>
+
+                <h3>Información que recopilamos:</h3>
+                <ul>
+                    <li>Nombre completo</li>
+                    <li>Correo electrónico</li>
+                    <li>Contraseña (almacenada de forma segura)</li>
+                </ul>
+
+                <h3>Uso de la información:</h3>
+                <ul>
+                    <li>Crear y gestionar tu cuenta</li>
+                    <li>Proporcionar servicios meteorológicos personalizados</li>
+                    <li>Mejorar nuestra aplicación</li>
+                </ul>
+
+                <h3>Protección de datos:</h3>
+                <p>Utilizamos encriptación y medidas de seguridad para proteger tu información.</p>
+            `;
+            break;
+        case 'terminos':
+            title = 'Términos de Servicio';
+            text = `
+                <h2>Términos de Servicio</h2>
+                <p>Al usar App Clima, aceptas estos términos de servicio.</p>
+
+                <h3>Servicio:</h3>
+                <p>App Clima proporciona información meteorológica basada en datos de fuentes externas.</p>
+
+                <h3>Responsabilidades del usuario:</h3>
+                <ul>
+                    <li>Proporcionar información precisa</li>
+                    <li>Usar la aplicación de manera responsable</li>
+                    <li>No compartir credenciales de acceso</li>
+                </ul>
+
+                <h3>Limitación de responsabilidad:</h3>
+                <p>La información meteorológica es solo para fines informativos. No nos hacemos responsables por decisiones tomadas basadas en esta información.</p>
+            `;
+            break;
+        case 'cookies':
+            title = 'Política de Cookies';
+            text = `
+                <h2>Política de Cookies</h2>
+                <p>Utilizamos cookies para mejorar tu experiencia en App Clima.</p>
+
+                <h3>Tipos de cookies:</h3>
+                <ul>
+                    <li><strong>Cookies técnicas:</strong> Necesarias para el funcionamiento de la aplicación</li>
+                    <li><strong>Cookies de preferencias:</strong> Para recordar tus configuraciones</li>
+                </ul>
+
+                <h3>Gestión de cookies:</h3>
+                <p>Puedes gestionar las cookies a través de la configuración de tu navegador.</p>
+            `;
+            break;
+    }
+
+    content.innerHTML = text;
+    modal.style.display = 'block';
+}
+
+// Función para cerrar el modal
+function closeModal() {
+    document.getElementById('legalModal').style.display = 'none';
+}
+
+// Cerrar modal al hacer clic fuera de él
+window.onclick = function(event) {
+    const modal = document.getElementById('legalModal');
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+}

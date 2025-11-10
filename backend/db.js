@@ -8,8 +8,8 @@ dotenv.config();
 // Función para conectar a la base de datos MongoDB
 export const connectDB = async () => {
   try {
-    // Obtener la URI de MongoDB de las variables de entorno o usar valor por defecto
-    const mongoUri = process.env.MONGO_URI || "mongodb+srv://daniellujan123489_db_user:Station192005@cluster0.n8s8m2l.mongodb.net/";
+    // Cambiar temporalmente a MongoDB local para pruebas
+    const mongoUri = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/app-clima";
 
     // Intentar conectar a MongoDB
     await mongoose.connect(mongoUri);
