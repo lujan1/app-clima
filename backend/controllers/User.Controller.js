@@ -1,8 +1,14 @@
-// Importaciones necesarias para el controlador de usuarios
-import User from "../models/User.js";
-import bcrypt from "bcrypt";
+/**
+ * Controladores para la gestión de usuarios en la App del Clima.
+ * Funciones para crear, leer, actualizar y eliminar usuarios (CRUD).
+ * Incluye validación, hashing de contraseñas y manejo de errores.
+ */
 
-// Función para crear un nuevo usuario (registro)
+// Importaciones necesarias para el controlador de usuarios
+import User from "../models/User.js"; // Modelo de Mongoose para usuarios
+import bcrypt from "bcrypt"; // Librería para hashear y comparar contraseñas
+
+// Función para crear un nuevo usuario (registro) - POST /api/users/register
 export const addUser = async (req, res) => {
   try {
     // Extraer datos del body de la petición
@@ -19,7 +25,7 @@ export const addUser = async (req, res) => {
       return res.status(400).json({ message: "El usuario ya existe" });
     }
 
-    // Hashear la contraseña antes de guardarla
+    // Hashear la contraseña antes de guardarla (seguridad)
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // Crear nuevo usuario con la contraseña hasheada
@@ -40,7 +46,7 @@ export const addUser = async (req, res) => {
   }
 };
 
-// Función para listar todos los usuarios
+// Función para listar todos los usuarios - GET /api/users/
 export const listAllUsers = async (req, res) => {
   try {
     // Obtener todos los usuarios excluyendo la contraseña por seguridad
@@ -53,7 +59,7 @@ export const listAllUsers = async (req, res) => {
   }
 };
 
-// Función para listar un usuario por ID
+// Función para listar un usuario por ID - GET /api/users/:id
 export const listUserById = async (req, res) => {
   try {
     // Buscar usuario por ID excluyendo la contraseña
@@ -67,7 +73,7 @@ export const listUserById = async (req, res) => {
   }
 };
 
-// Función para actualizar un usuario
+// Función para actualizar un usuario - PUT /api/users/:id
 export const updateUser = async (req, res) => {
   try {
     // Obtener ID del usuario de los parámetros de la ruta
@@ -75,7 +81,7 @@ export const updateUser = async (req, res) => {
 
     // Actualizar usuario y devolver el documento actualizado (sin contraseña)
     const updatedUser = await User.findByIdAndUpdate(id, req.body, {
-      new: true,
+      new: true, // Devolver el documento actualizado
     }).select("-password");
 
     // Verificar si el usuario existe
@@ -91,7 +97,7 @@ export const updateUser = async (req, res) => {
   }
 };
 
-// Función para eliminar un usuario
+// Función para eliminar un usuario - DELETE /api/users/:id
 export const deleteUser = async (req, res) => {
   try {
     // Obtener ID del usuario de los parámetros de la ruta

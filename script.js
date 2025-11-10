@@ -1,3 +1,9 @@
+/**
+ * Script para manejar la interacción del frontend de la App del Clima.
+ * Incluye registro, login, alternancia de formularios y envío de PQRS.
+ * Ahora conecta con el backend API en lugar de localStorage.
+ */
+
 // Función para alternar entre registro y login
 document.getElementById('toggleButton').addEventListener('click', function() {
     const registroForm = document.getElementById('registroForm');
@@ -9,7 +15,7 @@ document.getElementById('toggleButton').addEventListener('click', function() {
     } else {
         loginSection.style.display = 'none';
         registroForm.style.display = 'block';
-        this.textContent = 'Ingresar';
+        this.textContent = 'Iniciar Sesión';
     }
 });
 

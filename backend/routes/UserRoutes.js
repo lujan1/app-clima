@@ -1,13 +1,18 @@
+/**
+ * Rutas para la gestión de usuarios en la App del Clima.
+ * Incluye registro, login, y operaciones CRUD (listar, actualizar, eliminar).
+ */
+
 // Importaciones necesarias para las rutas de usuario
-import express from "express";
-import bcrypt from "bcrypt";
-import User from "../models/User.js";
+import express from "express"; // Framework para definir rutas
+import bcrypt from "bcrypt"; // Para comparar contraseñas hasheadas
+import User from "../models/User.js"; // Modelo de usuario de MongoDB
 import {
-  addUser,
-  listAllUsers,
-  listUserById,
-  updateUser,
-  deleteUser
+  addUser, // Función para crear un nuevo usuario (registro)
+  listAllUsers, // Función para listar todos los usuarios
+  listUserById, // Función para obtener un usuario por ID
+  updateUser, // Función para actualizar un usuario
+  deleteUser // Función para eliminar un usuario
 } from "../controllers/User.Controller.js";
 
 // Crear router de Express
@@ -15,10 +20,10 @@ const router = express.Router();
 
 // ⚠️ Primero las rutas específicas (deben ir antes de las genéricas para evitar conflictos)
 
-// Ruta para registrar un nuevo usuario
+// Ruta para registrar un nuevo usuario (POST /api/users/register)
 router.post("/register", addUser);
 
-// Ruta para iniciar sesión
+// Ruta para iniciar sesión (POST /api/users/login)
 router.post("/login", async (req, res) => {
   try {
     // Extraer email y password del body de la petición
@@ -55,16 +60,16 @@ router.post("/login", async (req, res) => {
 
 // Luego las rutas genéricas (CRUD completo para usuarios)
 
-// Obtener todos los usuarios
+// Obtener todos los usuarios (GET /api/users/)
 router.get("/", listAllUsers);
 
-// Obtener un usuario por ID
+// Obtener un usuario por ID (GET /api/users/:id)
 router.get("/:id", listUserById);
 
-// Actualizar un usuario por ID
+// Actualizar un usuario por ID (PUT /api/users/:id)
 router.put("/:id", updateUser);
 
-// Eliminar un usuario por ID
+// Eliminar un usuario por ID (DELETE /api/users/:id)
 router.delete("/:id", deleteUser);
 
 // Exportar el router para usarlo en el servidor principal

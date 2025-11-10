@@ -10,28 +10,46 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Fondo animado con gradiente de cielo -->
+    <div class="animated-bg">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
     <!-- Elementos decorativos: sol y nubes animadas -->
     <div class="sun"></div>
     <div class="cloud"></div>
     <div class="cloud"></div>
 
     <div class="container">
-        <h1>Inicio de Sesión - App Clima</h1>
-        <p>Ingresa tu correo electrónico y contraseña para acceder.</p>
+        <div class="header">
+            <h1>🌦️ App Clima</h1>
+            <p class="subtitle">Accede a tu cuenta meteorológica</p>
+        </div>
 
-        <!-- Formulario de inicio de sesión actualizado para usar email -->
-        <form id="loginForm">
-            <!-- Campo para email en lugar de documento -->
-            <label for="email">Correo Electrónico:</label>
-            <input type="email" id="email" name="email" required>
+        <!-- Formulario de inicio de sesión -->
+        <form id="loginForm" class="form-container">
+            <div class="form-header">
+                <h2>Bienvenido de Vuelta</h2>
+                <p>Ingresa tus credenciales</p>
+            </div>
 
-            <label for="password">Contraseña:</label>
-            <input type="password" id="password" name="password" required>
+            <div class="input-group">
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" required placeholder="tu@email.com">
+            </div>
 
-            <button type="submit">Iniciar Sesión</button>
+            <div class="input-group">
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required placeholder="Tu contraseña">
+            </div>
+
+            <button type="submit" class="submit-btn">🔓 Iniciar Sesión</button>
         </form>
 
-        <!-- Elemento para mostrar mensajes de error o éxito -->
         <p id="message"></p>
 
         <!-- Enlace para volver al registro -->
@@ -39,7 +57,22 @@
 
         <!-- Derechos de autor -->
         <div class="footer">
-            <p>&copy; 2023 App Clima. Todos los derechos reservados.</p>
+            <div class="legal-info">
+                <p>&copy; 2024 App Clima. Todos los derechos reservados.</p>
+                <div class="legal-links">
+                    <a href="#" onclick="showLegal('privacidad')">Política de Privacidad</a> |
+                    <a href="#" onclick="showLegal('terminos')">Términos de Servicio</a> |
+                    <a href="#" onclick="showLegal('cookies')">Política de Cookies</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para avisos legales -->
+    <div id="legalModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div id="legalContent"></div>
         </div>
     </div>
 
